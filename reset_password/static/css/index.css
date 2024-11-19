@@ -1,0 +1,203 @@
+/* Body */
+body {
+    font-family: 'Inter Tight';
+    line-height: 24px;
+    width: 650px;
+    height: 1,024px;
+    padding: 80px 96px 80px 96px;
+    gap: 32px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    background: #FFFFFF;
+
+}
+    
+    
+    
+    /* shadow/container que envolve o reset de senha */
+    .shadow {
+        letter-spacing: 0.02em;
+        height: 548px;
+        border-radius: 16px;
+        width: 458px;
+        position: absolute;
+        padding: 40px;
+        top: 50%;
+        gap: 48px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+
+        .logo {
+            width: 168px;
+            height: 36px;
+            gap: 9px;
+        }
+
+        .container_dentro {
+            width: 378px;
+            height: 288px;
+
+            .container_instrucoes_resetar{
+                height: 96px;
+                gap: 8px;
+                text-align: center;
+
+                #row_h_reset {
+                    font-size: 16px;
+                    letter-spacing: 0.02em;
+                    text-align: center;
+                    line-height: 40px;
+
+                    #h_reset {
+                        font-weight: 600;
+                        font-size: 32px;
+                        line-height: 24px;
+                        color: #0D0D12;
+                        
+                    }
+
+                }
+
+                #row_p_instrucoes {
+                    height: 48px;
+                    
+                    #p_instrucoes {
+                        color: #666D80;
+                        font-size: 16px;
+                        font-weight: 400;
+                        letter-spacing: 0.02em;
+                        line-height: 24px;
+
+                    }
+
+                }
+            }
+
+            form {
+                height: 80px;
+                gap: 16px;
+
+                .container_email {
+                    gap: 8px;
+
+                    #row_l_email {
+                        #l_email {
+                            height: 24px;
+                            font-size: 14px;
+                            font-weight: 500;
+                            align-items: left;
+                            line-height: 21px;
+                            color: #666D80;
+                        }
+                    }
+        
+                    #input_group_email {
+                        /* Input */
+
+                        box-sizing: border-box;
+
+                        /* Auto layout */
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        padding: 0px 14px;
+                        gap: 16px;
+
+                        width: 378px;
+                        height: 48px;
+
+                        /* Greyscale/0 */
+                        background: #FFFFFF;
+                        /* Greyscale/100 */
+                        border: 1px solid #DFE1E6;
+                        box-shadow: 0px 1px 2px rgba(13, 13, 18, 0.06);
+                        border-radius: 12px;
+
+                        /* Inside auto layout */
+                        flex: none;
+                        order: 1;
+                        align-self: stretch;
+                        flex-grow: 0;
+
+
+                        
+                           
+                        #span_email {
+                            /* mail-01 */
+
+                            width: 20px;
+                            height: 20px;
+
+
+                            /* Inside auto layout */
+                            flex: none;
+                            order: 0;
+                            flex-grow: 0;
+
+        
+                            #icon_email {
+                                width: 15px;
+                                height: 11.67px;
+                                top: 4.17px;
+                                left: 2.5px;
+                                border: 1.5px;
+                                border: 1.5px solid #808897
+        
+                            }
+                        }
+
+                        
+
+                        #input_email {
+                            width: 298px;
+                            height: 24px;
+                            font-weight: 500;
+                            font-size: 16px;
+                            line-height: 24px;
+                            letter-spacing: 0.02em;
+                            color: #A4ABB8;
+                            border: none;
+                            
+                        }
+
+                    }                
+                }
+            }
+
+            button {
+                /* Button */
+
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 16px;
+            gap: 8px;
+
+            width: 378px;
+            height: 48px;
+
+            /* Primary/25 */
+            background: #DDD3FA;
+            border-radius: 12px;
+
+            /* Inside auto layout */
+            flex: none;
+            order: 2;
+            align-self: stretch;
+            flex-grow: 0;
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
