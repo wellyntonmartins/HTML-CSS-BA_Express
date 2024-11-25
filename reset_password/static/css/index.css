@@ -1,7 +1,13 @@
 
+
+
+/* Fonte de texto da página */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 /* CSS do corpo da página (fonte, dimensões, condições) */
 body {
-    font-family: 'SF Pro', Helvetica, Arial, san-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,6 +54,7 @@ body {
     margin-bottom: 32px;
 }
 
+
 /* Container das "intrucoes_resetar" (dimensões) */
 #container_instrucoes_resetar {
     margin-bottom: 32px;
@@ -55,9 +62,7 @@ body {
 
 /* H3: "Reset your password" (fonte, condições, dimensões) */
 #h_reset {
-    font-family: 'SF Pro', Helvetica, Arial, san-serif;
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 31px;
     line-height: 40px;
     text-align: center;
     color: #0D0D12;
@@ -73,9 +78,7 @@ body {
 
 /* Parágrafo: "Enter your email adress and..." (fonte, condições, dimensões) */
 #p_instrucoes {
-    font-family: 'SF Pro', Helvetica, Arial, san-serif;
     color: #666D80;
-    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.02em;
@@ -87,16 +90,26 @@ body {
 #row_label {
     justify-content: start;
     align-items: center;
+    font-weight: 500;
     margin-top: 32px;
     width: 378px;
-    font-weight: 500;
     font-size: 14px;
     color: #666D80;
     line-height: 21px;
     letter-spacing: 0.02em;
     margin: 0;
 }
+
     
+/* Formulário (dimensões, condições) */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Linha do input-group (dimensões, condições) */
 #row_input_group {
     width: 100%;
@@ -117,7 +130,10 @@ body {
     gap: 16px;
     box-shadow: 0px 1px 2px 0px #0D0D120F;
     position: relative;
+    transition: box-shadow 0.3s ease;
 }
+
+
 
 /* Ícone email (dimensões, condições) */
 #icon_email {
@@ -149,13 +165,36 @@ body {
     border: none;
     outline: none;
     padding: 0;
+    caret-color: #7047EB;
 }
 
-/* placeholder do input_email (condições) */
+
+/* Placeholder do input_email (condições) */
 #input_email::placeholder {
     color: #A4ABB8;
 }
 
+/* Animação da borda ao focar no input_email */
+#input_group_email:has(#input_email:focus) {
+    border-color: #7047EB;
+    box-shadow: 
+        0px 1px 2px 0px #0D0D120F,
+        0px 0px 0px 4px #ECEEFC;
+}
+
+/* err_email (dimensões, condições) */
+#err_email {
+    display: none;
+    align-self: flex-start;
+    color: #95122B;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
 /* Linha do botão de envio (dimensões, condições) */
 #row_button {
@@ -175,7 +214,21 @@ body {
     font-weight: 500;
     line-height: 24px;
     color: #FFFFFF;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Animação do botão de envio ao focar no input_email */
+form:has(#input_email:not(:placeholder-shown)) #button_signIn {
+    background-color: #7047EB;
+    pointer-events: auto;
     cursor: pointer;
+}
+
+
+/* Animação da borda do input_group ao ser inserido um valor inválido no input_email */
+#input_group_email:has(#input_email:invalid:not(:placeholder-shown)) {
+    border-color: #95122B;
 }
 
 /* Container do p_acess e p_admin (dimensões, condições) */
@@ -189,15 +242,14 @@ body {
 
 /* p_acess (fonte, dimensões, condições) */
 #p_acess {
-    font-family: 'SF Pro', Helvetica, Arial, san-serif;
     font-weight: 400;
     color: #0D0D12;
     margin-bottom: 1px;
 }
 
-/* p_acess (fonte, dimensoes, condições) */
+/* p_admin (fonte, dimensoes, condições) */
 #p_admin {
-    font-family: 'SF Pro', Helvetica, Arial, san-serif;
+    text-decoration: none;
     font-weight: 500;
     color: #7047EB;
 }

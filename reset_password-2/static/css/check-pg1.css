@@ -1,0 +1,130 @@
+
+/*Fonte de texto da página */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* CSS do corpo do código */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 96px;
+    gap: 32px;
+    width: 650px;
+    height: 1024px;
+}
+
+
+/* Borda principal (dimensões, condições) */
+.shadow {
+    width: 458px;
+    height: 511px;
+    border-radius: 16px;
+    padding: 40px;
+    gap: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Linha da logo (condições) */
+#row_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo da empresa (dimensões) */
+#logo {
+    width: 200px;
+    height: 36px;
+}
+
+/* Container interno (dimensões, condições) */
+#container_check {
+    width: 378px;
+    height: 347px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    margin: 0;
+}
+
+
+
+/* Ellipse (dimensões, condições) */
+#ellipse {
+    width: 170px;
+    height: 180%;
+    background-color: #DDF0FB;
+    border-radius: 50%;
+}
+
+
+/* Linha do H4 principal (dimensões) */
+#row_h_check_email {
+    margin-top: 32px;
+    height: 31px;
+}
+
+/* H4: "Chek your e-mail" (condições, dimensões) */
+#h_check_email {
+    line-height: 31.2px;
+    text-align: center;
+    color: #0D0D12;
+    margin: 0;
+    font-size: 24px;
+}
+
+
+/* Linha do parágrafo (condições, dimensões) */
+#row_p_link_msg {
+    margin-top: 16px;
+    text-align: center;
+}
+
+/* Parágrafo: "We’ve sent a link to reset your password." (condições, dimensões) */
+#p_link_msg {
+    color: #818898;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+
+
+/* Linha do botão de envio para a página (dimensões) */
+#row_button {
+    width: 378px;
+    margin-top: 32px;
+}
+
+/* Botão de envio (dimensões, condições) */
+ #button_check_email {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    background: #7047EB;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+
+ 
+
+
+
+
+
+
+
