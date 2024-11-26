@@ -68,17 +68,18 @@ body {
 
 /* Linha do H4 principal (dimensões) */
 #row_h_check_email {
+    width: 100%;
     margin-top: 32px;
     height: 31px;
 }
 
 /* H4: "Chek your e-mail" (condições, dimensões) */
 #h_check_email {
+    font-family: Inter Tight;
     line-height: 31.2px;
     text-align: center;
     color: #0D0D12;
-    margin: 0;
-    font-size: 24px;
+    font-size: 23px;
 }
 
 
@@ -90,6 +91,7 @@ body {
 
 /* Parágrafo: "We’ve sent a link to reset your password." (condições, dimensões) */
 #p_link_msg {
+    font-family: Inter Tight;
     color: #818898;
     font-size: 16px;
     line-height: 24px;
@@ -107,6 +109,7 @@ body {
 
 /* Botão de envio (dimensões, condições) */
  #button_check_email {
+    font-family: Inter Tight;
     width: 100%;
     height: 48px;
     border-radius: 12px;
