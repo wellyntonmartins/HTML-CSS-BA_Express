@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* CSS do corpo da página (fonte, dimensões, condições) */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px 96px;
+    gap: 32px;
+    width: 650px;
+    height: 1024px;
+}
+
+/* Borda principal (dimensões, condições) */
+.shadow {
+    width: 458px;
+    height: 769px;
+    border-radius: 16px;
+    position: absolute;
+    padding: 40px;
+    gap: 48px;
+}
+
+/* Linha da logo (condições) */
+#row_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo da empresa (dimensões) */
+#logo {
+    width: 200px;
+    height: 36px;
+}
+
+/* Container do formulário (dimensões, condições) */
+#container_form {
+    width: 378px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+/* Container das "intrucoes_resetar" (dimensões) */
+#container_create_password {
+    margin-bottom: 32px;
+}
+
+/* H3: "Reset your password" (fonte, condições, dimensões) */
+#h_create_password {
+    font-family: Inter Tight;
+    size: 24px;
+    text-align: center;
+    color: #0D0D12;
+    margin: 0;
+    font-size: 24px;
+    line-height: 31.2px;
+}
+
+/* Div que abrange tudo haver com o primeiro input-group (dimensões) */
+#password {
+    margin-top: 15px;
+}
+
+/* Div que abrange tudo haver com o segundo input-group (dimensões)*/
+#confirm_password {
+    margin-top: 15px;
+}
+
+/* Linha da label do input (dimensões, condições) */
+.row_label {
+    font-family: Inter Tight;
+    justify-content: left;
+    font-weight: 500;
+    font-size: 14px;
+    color: #666D80;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+}
+
+/* Input-group (condições) */
+.input-group {
+    font-family: Inter Tight;
+    display: flex;
+    position: relative; 
+    align-items: center;
+}
+
+/* Input-group do primeiro input (dimensões, condições) */
+#input_group_password {
+    margin-top: 12px;
+    width: 100%;
+    height: 48px;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid #DFE1E6;
+    padding: 0 16px;
+    box-shadow: 0px 1px 2px 0px #0D0D120F;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Input-group do segundo input (dimensões, condições) */
+#input_group_confirm_password {
+    margin-top: 12px;
+    width: 100%;
+    height: 48px;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid #DFE1E6;
+    padding: 0 16px;
+    margin-bottom: 40px;
+    box-shadow: 0px 1px 2px 0px #0D0D120F;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Icon_key, icon_eye e botão integrado com o icon_eye (dimensões, condições) */
+.icon_key,
+.icon_eye,
+.button_eye {
+    height: 20px;
+    width: 20px; /* Mesmo tamanho do input */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    object-fit: contain;
+}
+
+/* botão integrado com o icon_eye */
+.button_eye {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+/* Separador do ícon_eye para o input (condições) */
+.vector {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Input_email (dimensões, condições) */
+#input_password[type="password"] {
+    flex: 1;
+    height: 24px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+    border: none;
+    outline: none;
+    caret-color: #7047EB;
+}
+
+/* Input_email (dimensões, condições) */
+#input_confirm_password[type="password"] {
+    flex: 1;
+    height: 24px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+    border: none;
+    outline: none;
+    caret-color: #7047EB;
+}
+
+/* Placeholder para inputs do tipo password */
+input[type="password"]::placeholder {
+    color: #A4ABB8;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+}
+
+/* Placeholder para inputs do tipo text */
+input[type="text"]::placeholder {
+    color: #A4ABB8;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+}
+
+
+/* Input-group do primeiro input, caso o type mude para text (dimensões, condições) */
+#input_confirm_password[type="text"] {
+    flex: 1;
+    width: 100%;
+    height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    border: none;
+    outline: none;
+    padding: 0;
+    caret-color: #7047EB;
+}
+
+/* Input-group do segundo input, caso o type mude para text (dimensões, condições) */
+#input_password[type="text"] {
+    flex: 1;
+    width: 100%;
+    height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    border: none;
+    outline: none;
+    padding: 0;
+    caret-color: #7047EB;
+}
+
+/* Animação da borda ao focar nos inputs*/
+#input_group_password:has(#input_password:focus),
+#input_group_confirm_password:has(#input_confirm_password:focus) {
+  border-color: #7047EB;
+  box-shadow: 0px 1px 2px 0px #0D0D120F,
+              0px 0px 0px 4px #ECEEFC;
+}
+
+/* err_password (dimensões, condições) */
+#err_password {
+    display: none;
+    align-self: flex-start;
+    color: #95122B;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* H6: Your new password must... (dimensões, condições) */
+#h_must {
+    font-family: Inter Tight;
+    line-height: 40px;
+    text-align: left;
+    color: #0D0D12;
+    margin: 0;
+}
+
+/* Botão de envio (dimensões, condições) */
+ #button_save_new_password {
+    font-family: Inter Tight;
+    width: 100%;
+    height: 48px;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #DDD3FA;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #FFFFFF;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Div das checkboxes de requerimentos (dimensões, condições) */
+.password-requirements {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  /* Div das checkboxes que cuida dos textos ao lado delas (dimensões, condições) */
+  .requirement {
+    font-family: Inter Tight;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    gap: 8px;
+    font-size: 14px;
+    color: #666D80;
+  }
+  
+  /* Checkboxes (dimensões, condições) */
+  .checkbox {
+    appearance: none; /* Remove o estilo padrão da checkbox */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #A4ABB8; /* Cor da borda quando não está checado */
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Caso as checkboxes sejam marcadas (dimensões, condições) */
+.checkbox:checked {
+    background-color: #7047EB; /* Cor de fundo quando checado */
+    border-color: #7047EB;
+    
+}
+
+/* Depois das checkboxes serem marcadas (dimensões, condições) */
+.checkbox:checked::after {
+    content: url('/icons/check.jpg');
+    position: absolute;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: baseline;
+    justify-content: center;
+    display: flex;
+}
+
+/* Animação do botão de envio ao digitar no input_confirm_password */
+form:has(#input_confirm_password:not(:placeholder-shown)) #button_save_new_password {
+    background-color: #7047EB;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+/* Animação da borda dos input-groups ao serem inseridos um valor inválido nos seus inputs */
+#input_group_password:has(#input_password:invalid:not(:placeholder-shown)),
+#input_group_confirm_password:has(#input_confirm_password:invalid:not(:placeholder-shown)) {
+  border-color: #95122B;
+}
+
+
+
+
+
+
+
+
