@@ -1,0 +1,122 @@
+
+/*Fonte de texto da página */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* CSS do corpo do código */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 96px;
+    gap: 32px;
+    width: 650px;
+    height: 1024px;
+}
+
+
+/* Borda principal (dimensões, condições) */
+.shadow {
+    width: 458px;
+    border-radius: 16px;
+    padding: 40px;
+    gap: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Linha da logo (condições) */
+#row_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo da empresa (dimensões) */
+#logo {
+    width: 200px;
+    height: 36px;
+    margin-bottom: 30px;
+}
+
+/* Container interno (dimensões, condições) */
+#container_success_changed {
+    width: 378px;
+    height: 347px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    margin: 0;
+}
+
+/* Linha do H4 principal (dimensões) */
+#row_h_changed_password {
+    width: 327px;
+    margin-top: 46px;
+    height: 31px;
+}
+
+/* H4: "Your successfully..." (condições, dimensões) */
+#h_changed_password {
+    font-family: Inter Tight;
+    line-height: 31.2px;
+    text-align: center;
+    color: #0D0D12;
+    font-size: 23px;
+}
+
+
+/* Linha do parágrafo (condições, dimensões) */
+#row_p_you_updated {
+    margin-top: 48px;
+    text-align: center;
+    width: 327px;
+}
+
+/* Parágrafo: "Awesome. You’ve successfully..." (condições, dimensões) */
+#p_you_updated {
+    font-family: Inter Tight;
+    color: #818898;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+/* Linha do botão de envio para a página (dimensões) */
+#row_button {
+    width: 327px;
+    margin-top: 32px;
+    margin-bottom: 32px
+}
+
+/* Botão de envio (dimensões, condições) */
+ #button_back_login {
+    font-family: Inter Tight;
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    background: #7047EB;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+
+ 
+
+
+
+
+
+
+
