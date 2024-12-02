@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Reset password</title>
 		<!-- Ligação com o diretório dos ícones (icons) -->
-		<link rel="stylesheet" href="icons/" />
+		<link rel="stylesheet" href="/usuario-bloqueado/icons/" />
 		<!-- Ligação com o diretório do CSS (icons) -->
-		<link rel="stylesheet" type="text/css" href="css/check-pg1.css" />
+		<link rel="stylesheet" type="text/css" href="/usuario-bloqueado/css/usuario_bloqueado.css" />
 		<!-- Ligação com o css estilo Bootstrap -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 	</head>
@@ -19,29 +19,34 @@
 		<div class="shadow">
 			<!-- Logo da empresa -->
 			<div class="row" id="row_logo">
-				<img id="logo" src="icons/Logo.png" alt="" />
+				<img id="logo" src="/usuario-bloqueado/icons/Logo.png" alt="" />
 			</div>
 
 			<!-- Container do conteúdo da página (apenas para definir um escopo único para tudo) -->
-			<div class="container mt-5" id="container_success_changed">
-				<!-- Ícone acima do texto -->
-				<img id="icon_sucess" src="icons/sucess.png" alt="" />
+			<form action="/usuario-bloqueado" method="POST" class="container mt-5" id="container_acess_blocked">
+				<!-- Ellipse -->
+				<div id="ellipse"></div>
 
-				<!-- H4 principal -->
-				<div class="row" id="row_h_changed_password">
-					<h4 id="h_changed_password"><b>Your successfully changed your password</b></h4>
+				<!-- Container dos textos (Parágrafo e H4) -->
+				<div id="container_texts">
+					<!-- H4 principal -->
+					<div class="row" id="row_h_acess_blocked">
+						<h4 id="h_acess_blocked"><b>Access Temporarily Blocked</b></h4>
+					</div>
+
+					<!-- Parágrafo de aviso, abaixo da H4 -->
+					<p id="p_exceeded_attemps">
+						You have exceeded the maximum number of login attempts.
+						<br />
+						Please contact the administrator at admin@example.com to solve it.
+					</p>
 				</div>
 
-				<!-- Parágrafo de aviso, abaixo da H4 -->
-				<div class="row" id="row_p_you_updated">
-					<p id="p_you_updated">Awesome. You’ve successfully updated <br />your password.</p>
-				</div>
-
-				<!-- Botão de envio para checar e-mail -->
+				<!-- Botão de envio para contatar o suporte -->
 				<div class="row" id="row_button">
-					<button type="button" id="button_back_login">Back to Login</button>
+					<button type="button" id="button_contact_suport">Contact Suport</button>
 				</div>
-			</div>
+			</form>
 		</div>
 	</body>
 

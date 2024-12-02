@@ -1,0 +1,18 @@
+# Ignorar configurações do VSCode
+.vscode/
+
+# Ignorar arquivos temporários do sistema e logs
+*.log
+*.tmp
+.DS_Store
+
+# Ignorar outros diretórios de dependências ou sistemas de compilação
+node_modules/
+venv/
+dist/
+build/
+
+# Ignorar outros arquivos desnecessários que o Git está rastreando
+*.swp
+*.swo
+*.lock
