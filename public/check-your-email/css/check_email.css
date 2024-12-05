@@ -2,32 +2,30 @@
 /*Fonte de texto da página */
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+/* Html (dimensões, condições)*/
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
 
 /* CSS do corpo do código */
 body {
+    font-family: 'Inter Tight', sans-serif;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 96px;
-    gap: 32px;
-    width: 650px;
-    height: 1024px;
+    width: 100%;
+    height: 100%;
 }
-
 
 /* Borda principal (dimensões, condições) */
 .shadow {
-    width: 458px;
-    height: 511px;
+    max-width: 458px;
+    min-width: 458px;
+    max-height: 511px;
     border-radius: 16px;
     padding: 40px;
     gap: 48px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
 }
 
 /* Linha da logo (condições) */
@@ -55,8 +53,6 @@ body {
     margin: 0;
 }
 
-
-
 /* Ellipse (dimensões, condições) */
 #ellipse {
     width: 170px;
@@ -64,7 +60,6 @@ body {
     background-color: #DDF0FB;
     border-radius: 50%;
 }
-
 
 /* Linha do H4 principal (dimensões) */
 #row_h_check_email {
@@ -82,7 +77,6 @@ body {
     font-size: 23px;
 }
 
-
 /* Linha do parágrafo (condições, dimensões) */
 #row_p_link_msg {
     margin-top: 16px;
@@ -98,8 +92,6 @@ body {
     letter-spacing: 0.02em;
     margin: 0;
 }
-
-
 
 /* Linha do botão de envio para a página (dimensões) */
 #row_button {
@@ -121,13 +113,3 @@ body {
     line-height: 24px;
     color: #FFFFFF;
 }
-
-
- 
-
-
-
-
-
-
-

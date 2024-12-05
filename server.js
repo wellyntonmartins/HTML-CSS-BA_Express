@@ -86,9 +86,10 @@ app.post('/create-new-password', (req, res) => {
 
   // FIM
 
+  console.log(`Nova senha do usuário: ${req.body.password}`)
   // REDIRECIONAMENTO PARA A PÁGINA successfully-changed-password
   res.redirect('/successfully-changed-password')
-});
+})
 
 // ROTA DE MÉTODO GET PARA A PÁGINA successfully-changed-password
 app.get('/successfully-changed-password', (req, res) => {
