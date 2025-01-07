@@ -24,6 +24,11 @@ app.get('/reset-password', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'reset-password', 'reset_password.html'));
 });
 
+app.get('/daily', (req, res) => {
+  // RENDERIZAÇÃO NO PORT DA PÁGINA 
+  res.sendFile(path.join(__dirname, 'public', 'daily', 'daily.html'));
+});
+
 // ROTA DE MÉTODO POST PARA A PÁGINA reset-password
 app.post('/reset-password', (req, res) => {
   var email = req.body.email_do_usuario
