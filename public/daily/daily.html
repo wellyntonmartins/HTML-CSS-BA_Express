@@ -8,39 +8,90 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <div class="row" id="row-dPerformance">Daily Performance Insights</div>
+    <div class=" container-fluid container-principal">
+        <div class="row letter" id="row-dPerformance"><label for="">Daily Performance Insights</label></div>
 
-        <div class="row" id="row-nov24">November 2024</div>
+        <div class="row letter" id="row-nov24"><label for="">November 2024</label></div>
  
-        <div class="row" id="row-days">
-            <div class="col-1"></div>
-            <button class="col-2 button-day">01<span>Mon</span></button>
-            <button class="col-2 button-day">02<span>Tue</span></button>
-            <button class="col-2 button-day">03<span>Wed</span></button>
-            <button class="col-2 button-day">04<span>Thu</span></button>
-            <button class="col-2 button-day">05<span>Fri</span></button>
-            <div class="col-1 button-day"></div>
+        
+        <div class="container-buttons">
+            
+            <button class="button-day">01<br><div class="names-buttons">Mon</div></button>
+            
+            <button class="button-day">02<br><div class="names-buttons">Tue</div></button>
+            
+            <button class="button-day">03<br><div class="names-buttons">Wed</div></button>
+            
+            <button class="button-day">04<br><div class="names-buttons">Thu</div></button>
+            
+            <button class="button-day">05<br><div class="names-buttons">Fri</div></button>
+        </div>
+        
+
+        <div class="container" id="container-day-show">
+            <div class="row text-container-day-show">
+                <label for="">DY1A</label>
+            </div>
         </div>
 
-        <div class="container" id="container-day-show">Aqui vai o container azul</div>
+        <div class="row g-0 letter more-letter-size" id="row-true-insights"> <label for=""> Performance Insights</label></div>
 
-        <div class="row" id="row-true-insights">Performance Insights</div>
+        <div class="container-insights"> 
+            <div class="div-container-insights-1">
+                <div class="row container-inside-c-insights">
+                    <div class="col-6 pe-0 div-inside-div-insights"> 
+                        <button class="oi button-esquerdo-row-inside">oi</button>
+                    </div>
+                    
+                    <div class="col-6 ps-0 div-inside-div-insights">
+                        <button class="oi button-direito-row-inside">oi</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-divs"></div>
 
-        <div class="container" id="container-insights">
+            <div class="div-container-insights-2">
+                <div class="row container-inside-c-insights">
+                    <div class="col-6 pe-0 div-inside-div-insights"> 
+                        <button class="oi button-esquerdo-row-inside">oi</button>
+                    </div>
+                    
+                    <div class="col-6 ps-0 div-inside-div-insights">
+                        <button class="oi button-direito-row-inside">oi</button>
+                    </div>
+                </div>
+            </div>
 
+            <div class="space-divs"></div>
+
+            <div class="div-container-insights-3">
+                <div class="row container-inside-c-insights">
+                    <div class="col-4 pe-0 div-inside-div-insights"> 
+                        <button class="oi button-esquerdo-row-inside">oi</button>
+                    </div>
+
+                    <div class="col-4 ps-0 pe-0 div-inside-div-insights">
+                        <button class="oi button-meio-row-inside">oi</button>
+                    </div>
+                    
+                    <div class="col-4 ps-0 div-inside-div-insights">
+                        <button class="oi button-direito-row-inside">oi</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        
 
-        <div class="row">SUCCESSFUL STOPS</div>
+        <div class="row letter more-letter-size"><label for="">SUCCESSFUL STOPS</label></div>
         
         <div class="container" id="container-stops">
             aqui tem um container
         </div>
         
-        <div class="row">ATTEMPED FAILDE DELIVERIES</div>
+        <div class="row letter more-letter-size"><label for="">ATTEMPED FAILED DELIVERIES</label></div>
 
         <div class="container" id="container-failed-deliveries">
-            Aqui tem um container
         </div>
 
     </div>

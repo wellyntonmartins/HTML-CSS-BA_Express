@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+@import "/css/roots.css";
+
+html {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--backcollor-page);
+
+}
+
+.container-principal {
+    padding: 20px;
+    overflow: hidden;
+    font-family: "Comfortaa", serif;
+    background-color: var(--backcollor-page);
+}
+
+.letter {
+    color: var(--letter-collor);  
+    font-size: 130%;
+    margin: 1rem;
+}
+
+.more-letter-size {
+    font-size: 155%;
+    padding-left: 30px;
+}
+
+#row-nov24, #row-dPerformance {
+    text-align: center;
+}
+
+.container-buttons {
+    display: flex;
+    justify-content: center;
+    min-width: 80%;
+    min-height: 80px;
+    padding-top: 12px;
+    margin: 1rem;
+}
+
+.names-buttons {
+    color: var(--names-buttons-collor);
+    font-size: 60%;
+}
+
+br {
+    display: block; 
+    content: ""; 
+    margin-top: -6px; 
+}
+
+.button-day {
+    min-width: 15%;
+    min-height: 80%;
+    border-radius: 8px;
+    margin: 0rem 0.4rem 0rem 0.4rem ;
+    padding: 0px;
+    font-size: 150%;
+    background-color: var(--backcollor-buttons-daily);
+    color: var(--letter-collor-buttons-daily);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-day:hover {
+    background-color: var(--hover-backcollor-buttons-daily);
+    box-shadow: 0 0 12px var(--box-shadow-button-day-hover);
+ }
+
+ .button-day.active {
+    background-color: var(--active-backcollor-buttons-daily);
+ }
+
+#container-day-show {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 1.3rem;
+    height: 115px;
+    background: linear-gradient(to right, var(--dark-gradient-container-day-show), var(--light-gradient-container-day-show));
+}
+
+.text-container-day-show {
+    color: var(--text-collor-day-show);
+    font-size: 50px;
+}
+
+.container-insights {
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    width: 450px;
+    height: 322px;
+    margin: 1rem;
+}
+
+.div-container-insights-1, .div-container-insights-2, .div-container-insights-3 {
+    flex: 1;
+    width: 100%;
+}
+
+.oi {
+    width: 100%;
+    height: 100.66px;
+    border-radius: 12px;
+    font-size: 150%;
+    color: white;
+    background-color: rgba(69, 73, 89, 0.61);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.oi:hover {
+    background-color: rgba(64, 107, 181, 0.399);
+    box-shadow: 0 0 50px rgba(98, 126, 239, 0.5);
+}
+
+.button-esquerdo-row-inside:hover {
+    transform: translateX(15px) scale(1.15);
+}
+
+.button-direito-row-inside:hover {
+    transform: translateX(-15px) scale(1.15);
+}
+
+.button-meio-row-inside:hover {
+    transform: scale(1.15);
+}
+
+.space-divs {
+    height: 15px;
+}
+
+.space-label {
+    padding: 20px;
+}

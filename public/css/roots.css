@@ -1,0 +1,13 @@
+:root {
+    --hover-backcollor-buttons-daily: #000045;
+    --backcollor-buttons-daily: #1a1a1a;
+    --active-backcollor-buttons-daily: #2a2a2a;
+    --letter-collor-buttons-daily: white;
+    --text-collor-day-show: white;
+    --backcollor-page: black;
+    --letter-collor: #67a2dd; 
+    --names-buttons-collor: #b8b8b8; 
+    --box-shadow-button-day-hover: #000083; 
+    --dark-gradient-container-day-show: #1e40af;
+    --light-gradient-container-day-show: #3b82f6;
+}
