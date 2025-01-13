@@ -1,10 +1,18 @@
 :root {
     --hover-backcollor-buttons-daily: #000045;
     --backcollor-buttons-daily: #1a1a1a;
+    --hover-backcollor-buttons-ins-sto-fde: rgba(65, 75, 99, 0.668);
     --active-backcollor-buttons-daily: #2a2a2a;
     --letter-collor-buttons-daily: white;
     --text-collor-day-show: white;
+    --text-collor-inputs: white;
+    --hover-button-stops: rgba(132, 157, 244, 0.74);
+    --text-collor-input-SPORH: red;
+    --box-shadow-buttons-ins-sto-fde: 0 0 20px rgb(72, 102, 147);
+    --text-collor-input-TW: rgb(117, 195, 0);
     --backcollor-page: black;
+    --backcollor-containers-ins-sto-fde: rgba(2, 0, 119, 0.227);
+    --backcollor-buttons-ins-sto-fde: rgba(69, 73, 89, 0.61);
     --letter-collor: #67a2dd; 
     --names-buttons-collor: #b8b8b8; 
     --box-shadow-button-day-hover: #000083; 
