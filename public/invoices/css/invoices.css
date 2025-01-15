@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%  !important;
+    min-height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter Tight', sans-serif;
+    width: 100% !important;
+    min-height: 100% !important;
+}
+
+.navbar-container {
+    min-width: 100%;
+    padding: 1.25rem;
+    border-bottom: 0.01rem solid #dfe1e6;
+    margin-bottom: -1px;
+    margin: 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-and-txt {
+    display: flex;
+    align-items: center;
+}
+
+#img-paper-nav {
+    margin-right: 9px;
+    padding-bottom: 1px;
+}
+
+#new-invoice-txt {
+    color: #333;
+    font-size: 1.13rem;
+    font-weight: 600;
+}
+
+.btn-close {
+   scale: 0.7;
+}
+
+.container-self-billing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100% !important;
+    height: 164px;
+    padding: 1.25rem;
+    margin: 0;
+}
+
+.no-out-bord {
+    outline: none;
+    border: none;
+}
+
+.container-txt-and-id-self-biling {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 42%;
+    max-height: 63px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#self-billing-input {
+    font-weight: 600;
+    color: #32158b;
+    font-size: 1.11rem;
+}
+
+.container-logo-and-inform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 38%;
+}
+
+.logo-BA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.11%;
+}
+
+.informations-BA {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem; 
+}
+
+#label-title-BA {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.labels-informations {
+    width: 62.46%;
+}
+
+#email-BA {
+    color: #7047eb;
+}
+
+.labels-sm {
+    font-size: 0.9rem;
+    font-weight: 550;
+}
