@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoices</title>
+    <link rel="stylesheet" href="/css/roots.css">
     <link rel="stylesheet" href="css/invoices.css">
     <link rel="stylesheet" href="icons/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Container principal -->
     <div class="container-principal">
-        <nav class="navbar-container">
+        <!-- Navbar -->
+        <nav class="navbar-container"> 
             <div class="navbar-content">
+                <!-- Container da imagem e texto -->
                 <div class="img-and-txt">
                     <img id="img-paper-nav" src="icons/paper-invoice.png" alt="">
                     <label id="new-invoice-txt">New Invoice</label>
                 </div>
-        
+
+                <!-- Botão de fechar -->
                 <button type="button" class="btn"><img src="icons/x.png" alt=""></button>
             </div>
         </nav>
 
+        <!-- Container da self-billing -->
         <div class="container-self-billing">
             <div class="container-txt-and-id-self-biling">
                 <label for="">Self Billing Invoice</label>
@@ -46,10 +52,387 @@
                 </div>
             </div>
         </div>
+
+        <!-- Container da invoice-data -->
+        <div class="container-invoice-data">
+            <!-- Vendor Details -->
+            <div class="vendor-details">
+                <h2>Vendor Details</h2>
+                <div class="vendor-grid">
+                    <div class="vendor-item">
+                        <label>Name</label>
+                        <input type="text" value="Tiago Brito" disabled class="form-input">
+                    </div>
+                    <div class="vendor-item">
+                        <label>Vendor ID</label>
+                        <input type="text" value="TB079" disabled class="form-input">
+                    </div>
+                    <div class="vendor-item contact">
+                        <label>Contact</label>
+                        <input type="email" value="semesim@gmail.com" disabled class="form-input">
+                    </div>
+                    <div class="vendor-item">
+                        <label>Postal Code</label>
+                        <input type="text" value="SE17 1RU, London - UK" disabled class="form-input">
+                    </div>
+                    <div class="vendor-item">
+                        <label>Address</label>
+                        <input type="text" value="219 Walworth Road" disabled class="form-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice Details Container -->
+            <div class="invoice-container">
+                <div class="invoice-details">
+                    <h2>Invoice Details</h2>
+                    <div class="invoice-grid">
+                        <div class="invoice-item">
+                            <label>Invoice Date</label>
+                            <input type="text" value="30/09/2024" disabled class="form-input">
+                        </div>
+
+                        <div class="invoice-item">
+                            <label>Due Date</label>
+                            <input type="text" value="15/10/2024" disabled class="form-input">
+                        </div>
+
+                        <div class="invoice-item">
+                            <label>Payment Terms</label>
+                            <input type="text" value="NET 15" disabled class="form-input">
+                        </div>
+
+                        <div class="invoice-item">
+                        </div>
+
+                        <div class="invoice-item">
+                            <label>Total Stops</label>
+                            <input type="text" value="2034" disabled class="form-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deductions">
+                    <h2>Deductions</h2>
+                    <div class="deductions-list">
+                        <div class="deduction-item">
+                            <span>Less Prepayments</span>
+                            <input type="text" value="- £500.00" disabled class="form-input amount">
+                        </div>
+                        <div class="deduction-item">
+                            <span>Less Disbursements (TB0792408)</span>
+                            <input type="text" value="- £100.00" disabled class="form-input amount">
+                        </div>
+                        <div class="deduction-item">
+                            <span>Total Deductions</span>
+                            <input type="text" value="- £600.00" disabled class="form-input amount total">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="invoice-totals">
+                    <div class="total-item">
+                        <span>Invoice Subtotal</span>
+                        <input type="text" value="£3288.30" disabled class="form-input amount">
+                    </div>
+                    <div class="total-item">
+                        <span>VAT</span>
+                        <input type="text" value="£0.00" disabled class="form-input amount">
+                    </div>
+                    <div class="total-item final">
+                        <h2>Invoice Total</h2>
+                        <input type="text" value="£3288.30" disabled class="form-input amount invoice-total">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="details-section">
+            <h2>Details</h2>
+            <!-- Container da tabela -->
+            <div class="details-table">
+                <!-- Head da tabela -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>VAT</th>
+                            <th>QTY</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+
+                    <!-- Body da tabela -->
+                    <tbody>
+                        <!-- Linha 1 -->
+                        <tr>
+                            <td><input type="text" value="01/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="20 %" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+
+                        <!-- Linha 2 -->
+                        <tr>
+                            <td><input type="text" value="02/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+
+                        <!-- Linha 3 -->
+                        <tr>
+                            <td><input type="text" value="03/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+
+                        <!-- E assim por diante...-->
+                        <tr>
+                            <td><input type="text" value="04/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="05/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="06/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="07/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="08/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="09/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="10/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="11/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="12/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="13/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="14/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="15/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="16/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="17/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="18/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="19/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="20/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="21/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="22/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="23/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="24/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="25/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="26/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="27/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="28/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="29/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value="30/09/2024" disabled class="form-input"></td>
+                            <td><input type="text" value="ROUT COST ID: DY1A" disabled class="form-input"></td>
+                            <td><input type="text" value="No VAT" disabled class="form-input"></td>
+                            <td><input type="text" value="1" disabled class="form-input qty"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                            <td><input type="text" value="£200.00" disabled class="form-input amount"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Container do total calculation -->
+        <div class="total-calc">
+            <div class="total-calc-content">
+                <!-- Container do saldo -->
+                <div class="balance-due">
+                    <span>Balance Due</span>
+                    <input type="text" value="£2688.30" disabled class="form-input amount due">
+                </div>
+
+                <!-- Botão de criar fatura -->
+                <button class="create-invoice-btn">Create Invoice</button>
+            </div>
+        </div>
     </div>
-
-      
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

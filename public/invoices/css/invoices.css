@@ -1,6 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Html (dimensões, condições) */
 html {
     display: flex;
     flex-direction: column;
@@ -10,6 +10,7 @@ html {
     margin: 0;
 }
 
+/* Container principal (dimensões, condições) */
 .container-principal {
     display: flex;
     flex-direction: column;
@@ -18,40 +19,47 @@ html {
     min-height: 100% !important;
 }
 
+/* Barra de navegação (dimensões, condições) */
 .navbar-container {
     min-width: 100%;
     padding: 1.25rem;
-    border-bottom: 0.01rem solid #dfe1e6;
+    border-bottom: 0.01rem solid var(--border-collor-invoice);
     margin-bottom: -1px;
     margin: 0;
 }
 
+/* Conteúdo da barra de navegação (condições) */
 .navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Seção da imagem (paper) e "New Invoice" (condições) */
 .img-and-txt {
     display: flex;
     align-items: center;
 }
 
+/* Imagem do papel na navegação (dimensões) */
 #img-paper-nav {
     margin-right: 9px;
     padding-bottom: 1px;
 }
 
+/* Texto "New Invoice" (fonte, dimensões) */
 #new-invoice-txt {
-    color: #333;
+    color: var(--text-collor-dark-invoice);
     font-size: 1.13rem;
     font-weight: 600;
 }
 
+/* Botão de fechar (dimensões) */
 .btn-close {
    scale: 0.7;
 }
 
+/* Container do self-billing (dimensões, condições) */
 .container-self-billing {
     display: flex;
     flex-direction: row;
@@ -62,11 +70,13 @@ html {
     margin: 0;
 }
 
+/* Inputs sem borda e outline */
 .no-out-bord {
     outline: none;
     border: none;
 }
 
+/* Container do texto e ID do self-billing (dimensões, condições) */
 .container-txt-and-id-self-biling {
     display: flex;
     flex-direction: column;
@@ -78,12 +88,14 @@ html {
     font-weight: 600;
 }
 
+/* Input do self-billing (fonte, dimensões) */
 #self-billing-input {
     font-weight: 600;
-    color: #32158b;
+    color: var(--secondary-collor-invoice);
     font-size: 1.11rem;
 }
 
+/* Container da logo e informações (dimensões, condições) */
 .container-logo-and-inform {
     display: flex;
     flex-direction: row;
@@ -91,6 +103,7 @@ html {
     width: 38%;
 }
 
+/* Logo BA (dimensões, condições) */
 .logo-BA {
     display: flex;
     justify-content: center;
@@ -98,27 +111,472 @@ html {
     width: 33.11%;
 }
 
+/* Seção das informações do BA (dimensões, condições) */
 .informations-BA {
     display: flex;
     flex-direction: column;
     padding-left: 1rem; 
 }
 
+/* Título do BA (fonte, dimensões) */
 #label-title-BA {
     font-weight: 700;
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
 }
 
+/* Labels das informações (dimensões) */
 .labels-informations {
     width: 62.46%;
 }
 
+/* Email BA (cor) */
 #email-BA {
-    color: #7047eb;
+    color: var(--primary-collor-invoice);
 }
 
+/* Labels pequenas (fonte, dimensões) */
 .labels-sm {
     font-size: 0.9rem;
     font-weight: 550;
+}
+
+/* Container dos dados da fatura (dimensões, condições) */
+.container-invoice-data {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 28.33%; /* 622px / 2195px * 100 */
+}
+
+/* Seção dos detalhes do fornecedor (dimensões, condições) */
+.vendor-details {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border-collor-invoice);
+    width: 100%;
+}
+
+/* Container da fatura (dimensões, condições) */
+.invoice-container {
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-collor-invoice);
+    width: 100%;
+}
+
+/* Títulos vendor, invoice, deductions e invoice-totals (fonte, dimensões) */
+.vendor-details h2, .invoice-details h2, .deductions h2, .invoice-totals h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-collor-dark-invoice);
+    margin-bottom: 1rem;
+}
+
+/* Grid do vendor (dimensões, condições) */
+.vendor-grid {
+    display: flex;
+    width: 100%;
+}
+
+/* Seção item do vendor (dimensões, condições) */
+.vendor-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Distribuição específica para cada vendor-item */
+.vendor-item:nth-child(1) { /* Name */
+    width: 30%;
+}
+.vendor-item:nth-child(2) { /* Vendor ID */
+    width: 9%;
+    margin-left: 2%;
+}
+.vendor-item:nth-child(3) { /* Contact */
+    width: 20%;
+    margin-left: 2%;
+}
+.vendor-item:nth-child(4) { /* Postal Code */
+    width: 18%;
+    margin-left: 2%;
+}
+.vendor-item:nth-child(5) { /* Address */
+    width: 15.5%;
+    margin-left: 2%;
+}
+
+/* Grid das informações da fatura (dimensões, condições) */
+.invoice-grid {
+    display: flex;
+    width: 100%;
+}
+
+/* Items da fatura (dimensões, condições) */
+.invoice-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 0;
+}
+
+/* Distribuição específica para cada invoice-item */
+.invoice-item:nth-child(1) { /* Invoice Date */
+    width: 29%;
+}
+.invoice-item:nth-child(2) { /* Due Date */
+    width: 27%;
+    margin-left: 2%;
+}
+.invoice-item:nth-child(3) { /* Payment Terms */
+    width: 30%;
+    margin-left: 2%;
+}
+.invoice-item:nth-child(4) { /* Empty space */
+    display: none;
+}
+.invoice-item:nth-child(5) { /* Total Stops */
+    width: 9%;
+    margin-left: 4%;
+}
+
+/* Inputs gerais (dimensões, condições) */
+.form-input {
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--text-collor-dark-invoice);
+    font-weight: 600;
+    width: 100%;
+    font-size: 0.875rem;
+}
+
+/* Labels vendor e invoice (cor, fonte, dimensões) */
+.vendor-item label, .invoice-item label {
+    color: var(--text-collor-medium-invoice);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Inputs gerais desabilitados (cor, opacidade, cor do texto) */
+.form-input:disabled {
+    color: var(--text-collor-dark-invoice);
+    opacity: 1;
+    -webkit-text-fill-color: var(--text-collor-dark-invoice);
+}
+
+/* Seções das deduções e invoice-totals (dimensões, condições) */
+.invoice-details, .deductions {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border-collor-invoice);
+}
+
+/* Lista das deduções (dimensões, condições) */
+.deductions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Items das deduções (dimensões, condições) */
+.deduction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+    color: var(--text-collor-medium-invoice);
+    font-size: 0.875rem;
+}
+
+/* Amount (valor da fatura) (cor, fonte) */
+.amount {
+    color: var(--text-collor-dark-invoice);
+    font-weight: 500;
+}
+
+/* Container dos totais (dimensões, condições) */
+.invoice-totals {
+    padding: 1.25rem;
+}
+
+/* Items dos totais (dimensões, condições) */
+.total-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+    color: var(--text-collor-medium-invoice);
+    font-size: 0.875rem;
+}
+
+/* Total final (fonte, cor) */
+.total-item.final {
+    font-weight: 600;
+    color: var(--text-collor-dark-invoice);
+}
+
+/* Amount (valor da fatura) (fonte) */
+.total-item .amount {
+    font-weight: 600;
+}
+
+/* Inputs ao focar (outline, sombra) */
+.form-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Inputs da fatura (dimensões, condições) */
+.invoice-item .form-input {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Item da fatura (dimensões, condições) */
+.invoice-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 1rem;
+}
+
+/* Último item da fatura (dimensões, condições) */
+.invoice-item:last-child {
+    padding-right: 0;
+}
+
+/* Amount input (alinhamento, fonte, cor) */
+.form-input.amount {
+    text-align: right;
+    font-weight: 500;
+    color: var(--text-collor-dark-invoice);
+}
+
+/* Amount input desabilitado (opacidade, cor do texto) */
+.form-input.amount:disabled {
+    opacity: 1;
+    -webkit-text-fill-color: var(--text-collor-dark-invoice);
+}
+
+/* Amount total input desabilitado (cor do texto) */
+.form-input.amount.total:disabled {
+    -webkit-text-fill-color: var(--error-collor-invoice);
+    color: var(--error-collor-invoice) !important;
+    font-weight: 600;
+}
+
+/* Amount total input desabilitado (cor do texto) */
+.form-input.amount.invoice-total:disabled {
+    -webkit-text-fill-color: var(--primary-collor-invoice);
+    color: var(--primary-collor-invoice) !important;
+    font-size: 1.13rem;
+    font-weight: 600;
+}
+
+/* Amount das deduções e totais (dimensões, condições) */
+.deduction-item .form-input.amount,
+.total-item .form-input.amount {
+    width: auto;
+    min-width: 90px;
+}
+
+/* Section dos detalhes (dimensões, condições) */
+.details-section {
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    padding-bottom: 0;
+}
+
+/* Título da section dos detalhes (fonte, dimensões) */
+.details-section h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-collor-dark-invoice);
+    margin-bottom: 1rem;
+}
+
+/* Tabela dos detalhes (dimensões, condições) */
+.details-table {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0;
+    max-height: calc(100vh - 200px);
+}
+
+/* Tabela dos detalhes (dimensões, condições) */
+.details-table table {
+    width: 100%;
+    height: 1070px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-collor-invoice);
+    border-radius: 0.5rem;
+}
+
+/* Cabeçalho da tabela dos detalhes (alinhamento, dimensões, fonte, cor) */
+.details-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-collor-medium-invoice);
+    border-bottom: 1px solid var(--border-collor-invoice);
+    height: 32px;
+}
+
+/* Linha da tabela dos detalhes (dimensões, condições) */
+.details-table td {
+    padding: 0.25rem 0.75rem;
+    border-bottom: 1px solid var(--border-collor-invoice);
+    height: 32px;
+}
+
+/* Ajustes específicos para as colunas (dimensões, condições) */
+.details-table th:nth-child(1), /* Date */
+.details-table td:nth-child(1) {
+    width: 15%;
+}
+
+.details-table th:nth-child(2), /* Description */
+.details-table td:nth-child(2) {
+    width: 34%;
+}
+
+.details-table th:nth-child(3), /* VAT */
+.details-table td:nth-child(3) {
+    width: 17%;
+}
+
+.details-table th:nth-child(4), /* QTY */
+.details-table td:nth-child(4) {
+    width: 12%;
+}
+
+.details-table th:nth-child(5), /* Rate */
+.details-table td:nth-child(5) {
+    width: 9%;
+    padding-right: 0;
+}
+
+.details-table th:nth-child(6), /* Amount */
+.details-table td:nth-child(6) {
+    width: 17%;
+    padding-right: 0;
+}
+
+/* Estilo para os inputs dentro da tabela (dimensões, condições) */
+.details-table .form-input {
+    width: 100%;
+    font-size: 0.875rem;
+    padding: 0;
+    height: 24px;
+    color: var(--text-collor-dark-invoice);
+    font-weight: 700;
+    line-height: 24px;
+}
+
+/* Estilo específico para inputs com "No VAT" (cor) */
+.details-table td:nth-child(3) .form-input[value="No VAT"],
+.details-table td:nth-child(3) .form-input[value="No VAT"]:disabled {
+    color: var(--text-collor-medium-invoice);
+    -webkit-text-fill-color: var(--text-collor-medium-invoice);
+    font-weight: 500;
+}
+
+/* Alinhamento ao centro para os inputs e th's da tabela (dimensões, condições) */
+.details-table td:nth-child(3) .form-input,
+.details-table td:nth-child(4) .form-input,
+.details-table td:nth-child(5) .form-input,
+.details-table td:nth-child(6) .form-input,
+.details-table th:nth-child(3),
+.details-table th:nth-child(4),
+.details-table th:nth-child(5),
+.details-table th:nth-child(6) {
+    text-align: center;
+}
+
+.details-table th:nth-child(6),
+.details-table td:nth-child(6) {
+    padding-right: 0;
+}
+
+/* Hover effect nas linhas (dimensões, condições) */
+.details-table tbody tr:hover {
+    background-color: var(--hover-backcollor-invoice);
+}
+
+/* Total Calculation (dimensões, condições) */
+.total-calc {
+    display: flex;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-collor-invoice);
+    height: auto;
+    justify-content: flex-end;
+}
+
+/* Container do total calculation (dimensões, condições) */
+.total-calc-content {
+    display: flex;
+    width: 37%;
+}
+
+/* Container do saldo (dimensões, condições) */
+.balance-due {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    row-gap: 0.25rem;
+    width: 29%;
+    margin-right: 1.6rem;
+    color: var(--text-collor-light-invoice);
+}
+
+/* Amount do saldo (dimensões, condições) */
+.balance-due .amount.due {
+    border: none;
+    background: none;
+    color: var(--text-collor-dark-invoice);
+    font-weight: 700;
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+/* Botão de criar fatura (dimensões, condições) */
+.create-invoice-btn {
+    background-color: var(--primary-collor-invoice);
+    color: var(--button-text-collor-invoice);
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 46px;
+    width: 54%;
+    text-align: center;
+    border-radius: 0.8rem;
+}
+
+/* Amount do saldo desabilitado (opacidade, cor do texto) */
+.balance-due .form-input.amount.due:disabled {
+    -webkit-text-fill-color: var(--text-collor-dark-invoice);
+}
+
+/* Media query para altura menor que 2132px (dimensões, condições) */
+@media (height < 2132px) {
+    html {
+        overflow: scroll;
+    }
+}
+
+/* Media query para largura menor que 792px (dimensões, condições) */
+@media (width < 792px) {
+    html {
+        overflow: scroll;
+    }
+}
+
+/* Media query para largura menor que 605px (dimensões, condições) */
+@media (width < 605px) {
+    html {
+        overflow: hidden;
+    }
 }

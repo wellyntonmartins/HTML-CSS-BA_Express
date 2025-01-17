@@ -18,4 +18,15 @@
     --box-shadow-button-day-hover: #000083; 
     --dark-gradient-container-day-show: #1e40af;
     --light-gradient-container-day-show: #3b82f6;
+
+    --border-collor-invoice: #dfe1e6;
+    --text-collor-dark-invoice: #333;
+    --text-collor-medium-invoice: #666;
+    --text-collor-light-invoice: #818898;
+    --primary-collor-invoice: #7047eb;
+    --secondary-collor-invoice: #32158b;
+    --hover-backcollor-invoice: #f9fafb;
+    --error-collor-invoice: red;
+    --disabled-backcollor-invoice: #DDD3FA;
+    --button-text-collor-invoice: white;
 }
