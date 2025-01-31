@@ -1,0 +1,130 @@
+
+/*Fonte de texto da página */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Html (dimensões, condições)*/
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* CSS do corpo do código */
+body {
+    font-family: 'Inter Tight', sans-serif;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Borda principal (dimensões, condições) */
+.shadow {
+    max-width: 520px;
+    min-width: 520px;
+    height: 560px;
+    max-height: 583px;
+    border-radius: 16px;
+    padding: 32px;
+    padding-top: 30px;
+    gap: 48px;
+    margin: auto;
+}
+
+/* Row do botão para fechar a página (dimensões, condições) */
+.row-btn-close {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* Div do botão para fechar a página (dimensões, condições) */
+.row-btn-close div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 0px;
+}
+
+/* Botão para fechar a página (dimensões, condições) */
+.row-btn-close div:nth-child(1) button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-right: 0;
+    background: none;
+}
+
+/* Linha da logo (condições) */
+#row_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+/* Logo da empresa (dimensões) */
+#logo {
+    width: 200px;
+    height: 36px;
+}
+
+/* Container interno (dimensões, condições) */
+#container_acess_blocked {
+    width: 456px;
+    height: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ellipse (dimensões, condições) */
+#ellipse {
+    width: 180px;
+    height: 175px;
+    background-color: #DDF0FB;
+    border-radius: 60%;
+}
+
+/* Container dos textos: H1 e Parágrafo (dimensões, condições) */
+#container_texts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: last baseline;
+    align-items: center;
+}
+
+/* Linha do H1 principal (dimensões) */
+#row_h_acess_blocked {
+    margin-top: 32px;
+}
+
+/* H1: "Access Temporarily Blocked" (condições, dimensões) */
+#h_acess_blocked {
+    font-family: Inter Tight;
+    width: 456px;
+    margin-top: 10px;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: #0D0D12;
+}
+
+/* Parágrafo: "You have exceeded the maximum number..." (condições, dimensões) */
+#p_exceeded_attemps {
+    width: 456px;
+    margin-top: 10px;
+    height: 72px; 
+    font-family: Inter Tight;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #818898;
+    letter-spacing: 0.02em;
+    text-align: center;
+    margin-bottom: 0;
+}

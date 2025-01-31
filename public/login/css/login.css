@@ -1,0 +1,423 @@
+/* Fonte de texto da página */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Html da página (dimensões, condições) */
+html {
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CSS do corpo do código */
+body {
+    font-family: 'Inter Tight', sans-serif;
+    display: flex;
+    max-width: 100%;
+    min-width: 100%;
+    height: 100%;
+    gap: 32px;
+    margin: auto;
+}
+
+/* Borda principal (dimensões, condições) */
+.shadow {
+    position: relative;
+    max-width: 458px;
+    min-width: 458px;
+    min-height: 613px;
+    max-height: 613px;
+    border-radius: 16px;
+    padding: 40px;
+    gap: 48px;
+    margin: auto;
+}
+
+/* Linha da logo (condições) */
+#row_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo da empresa (dimensões) */
+#logo {
+    width: 200px;
+    height: 36px;
+}
+
+/* Container do formulário (dimensões, condições) */
+#container_form {
+    width: 378px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px !important;
+    margin-bottom: 32px;
+}
+
+/* Container das "intrucoes_login" (dimensões) */
+#container_instrucoes_login {
+    margin-bottom: 32px;
+}
+
+/* H: "Welcome back" (fonte, condições, dimensões) */
+#h_welcome {
+    font-family: Inter Tight;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    color: #0D0D12;
+    margin: 0;
+}
+
+/* H: "Login in to your account" (fonte, condições, dimensões) */
+#h_login {
+    font-family: Inter Tight;
+    font-size: 32px;
+    width: 100%;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: center;
+    color: #0D0D12;
+    padding: 0px !important;
+    margin: 0;
+}
+
+/* Linha do parágrafo "glad" (condições, dimensões) */
+#row_p_glad {
+    text-align: center;
+    margin-top: 5px; 
+    margin-bottom: 25px;
+}
+
+/* Parágrafo: "Glad to se you..." (fonte, condições, dimensões) */
+#p_glad {
+    font-family: Inter Tight;
+    color: #666D80;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+/* Linha das labels do input (dimensões, condições) */
+.row_label {
+    font-family: Inter Tight;
+    justify-content: start;
+    align-items: center;
+    font-weight: 500;
+    margin-top: 12px;
+    width: 378px;
+    font-size: 14px;
+    color: #666D80;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+/* Formulário (dimensões, condições) */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 12px;
+}
+
+/* Input-groups (dimensões, condições) */
+#input_group_email, #input_group_password {
+    font-family: Inter Tight;
+    margin-top: 12px;
+    width: 378px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    border: 1px solid #DFE1E6;
+    padding: 0 16px;
+    gap: 16px;
+    box-shadow: 0px 1px 2px 0px #0D0D120F;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Row da label password (dimensões, condições) */
+#row_label_password {
+    margin-top: 7px;
+    margin-bottom: -2px;
+}
+
+/* Input-group do password (condições) */
+#input_group_password {
+    margin-top: 0px;
+}
+
+/* Input-groups (dimensões, condições) */
+.input-group input[type="text"], .input-group input[type="email"] {
+    flex: 1;
+    min-height: 24px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    border: none;
+    outline: none;
+    caret-color: #7047EB;
+}
+
+/* Input-group password (dimensões, condições) */
+.input-group input[type="password"] {
+    flex: 1;
+    min-height: 24px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0.2em;
+    border: none;
+    outline: none;
+    caret-color: #7047EB;
+}
+
+/* Placeholder para os inputs */
+.input-group input::placeholder {
+    color: #A4ABB8;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-self: baseline;
+}
+
+/* Animação da borda ao focar nos inputs */
+#input_group_email:has(#input_email:focus), #input_group_password:has(#input_password:focus) {
+    border-color: #7047EB;
+    box-shadow: 
+        0px 1px 2px 0px #0D0D120F,
+        0px 0px 0px 4px #ECEEFC;
+}
+
+/* Animação da borda do input_group_email ao serem inseridos um valor inválido em si mesmos */
+#input_group_email:has(#input_email:invalid:not(:placeholder-shown)) {
+    border-color: #95122B;
+}
+
+/* Animação do botão de envio ao focar nos inputs */
+form:has(#input_email:not(:placeholder-shown)):has(#input_password:not(:placeholder-shown))  #button_signIn {
+    background-color: #7047EB;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Ícone email/password (dimensões, condições) */
+#icon_email, #icon_password {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    align-items: center;
+}
+
+/* Separador do ícone para o input (condições) */
+#vector {
+    display: flex;
+    align-items: center;
+    object-fit: contain;
+}
+
+/* Button eye (dimensões, condições) */
+#button_eye_1 {
+    border: none;
+    outline: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* err_email (dimensões, condições) */
+#err_email, #err_password {
+    align-self: flex-start;
+    color: #95122B;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Row da a forgot password (dimensões, condições) */
+#row_keep_and_forgot {
+    display: flex;
+    flex-direction: row; 
+    margin-top: 6px;
+    width: 378px;
+}
+
+/* Div 1 da checkbox keep logged (dimensões, condições) */
+#row_keep_and_forgot div:nth-child(1) {
+    align-items: flex-start;
+}
+
+/* Div 2 da checkbox keep logged (dimensões, condições) */
+#row_keep_and_forgot div:nth-child(2) {
+    text-align: right;
+    padding-right: 0px;
+}
+
+/* Linha do botão de envio (dimensões, condições) */
+#row_button {
+    width: 378px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+/* Botão de envio (dimensões, condições) */
+#button_signIn {
+    font-family: Inter Tight;
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    background: #DDD3FA;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #FFFFFF;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Div 1 da linha keep and logged (dimensões, condições) */
+#row_keep_and_forgot div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+    gap: 8px;
+}
+
+/* Checkbox keep logged (dimensões, condições) */
+.checkbox_keep_logged {
+    appearance: none;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #DFE1E6;
+    border-radius: 6px;
+    cursor: pointer;
+    align-items: center;
+    margin: 0;
+}
+
+/* Checkbox (checked) keep logged (dimensões, condições) */
+.checkbox_keep_logged:checked {
+    background-color: #7047EB;
+    border-color: #7047EB;
+}
+
+/* Checkbox (checked after) keep logged (dimensões, condições) */
+.checkbox_keep_logged:checked::after {
+    content: url('/login/icons/check.jpg');
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Label keep logged (dimensões, condições) */
+.label_keep_logged {
+    color: #2b2b2f;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.001em;
+    cursor: pointer;
+}
+
+/* A forgot password (dimensões, condições) */
+.a_forgot_password {
+    color: #7047EB;
+    font-size: 15px;
+    letter-spacing: 0.001em;
+    font-weight: 650;
+    line-height: 21px;
+    text-decoration: none;
+}
+
+/* Alert error (dimensões, condições)*/
+.alert-error {
+    position: absolute;
+    display: flex;
+    width: 430px;
+    height: 65px;
+    padding: 12px 16px 20px 118px;
+    background: #FFF1F3;
+    border: 1px solid #d73c60;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    box-shadow: 0px 1px 2px rgba(13, 13, 18, 0.06);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Aparição do alert error (dimensões, condições)*/
+form:has(.alert-error[style*="display: flex"]) #input_group_email {
+    border-color: #95122B;
+}
+
+/* Alert error icon (dimensões, condições)*/
+.alert-error-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Alert error d-none (dimensões, condições)*/
+.alert-error.d-none {
+    display: none !important;
+}
+
+/* Alert error content (dimensões, condições)*/
+.alert-error-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+    gap: 2px;
+}
+
+/* Alert error title (dimensões, condições)*/
+.alert-error-title {
+    color: #0D0D12;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+}
+
+/* Alert error message (dimensões, condições)*/
+.alert-error-message {
+    color: #666D80;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0;
+}
