@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 import session from 'express-session';
-import { isPromise } from "util/types"
 
 // Configuração do middleware de sessão
 app.use(session({
@@ -28,8 +27,6 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false } // Use true se estiver usando HTTPS
 }));
-
-app.set('trust proxy', true);
 
 // ROTA DE MÉTODO GET PARA A PÁGINA login
 app.get('/auth/login', (req, res) => {
@@ -40,9 +37,6 @@ app.get('/auth/login', (req, res) => {
 app.post('/auth/login', (req, res) => {
   const { email_do_usuario, password_do_usuario } = req.body;
 
-   // Captura o IP do cliente (versão corrigida)
-   const clientIP = req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-
   // Inicializa a sessão corretamente
   req.session.loginAttempts = req.session.loginAttempts || 0;
 
@@ -52,11 +46,24 @@ app.post('/auth/login', (req, res) => {
 
     // Resposta para AJAX (JSON com redirect)
     if (req.xhr) { // Verifica se é uma requisição AJAX
-      // Registrar email e IP no terminal
-      console.log('Dados de login:', {
+      var http=new XMLHttpRequest();
+      http.open('post','localhost:3001/auth/login');
+      http.onload=function(){
+          if (this.status >=200 && this.status <300){
+              console.log(this.response);
+          }
+      };
+
+      var payload = {
         "email": email_do_usuario,
-        "ip": clientIP
-      });
+        "password": password_do_usuario,
+        "ipAddress": "177.104.11.119",
+        "deviceInfo": "teste"
+      }
+
+      http.send(payload);
+      res.json(JSON.parse(http.response));
+
       res.json({ redirect: '/daily' });
     } else {
         res.redirect('/daily');
