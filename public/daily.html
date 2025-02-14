@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Daily</title>
+    <title>Daily overview</title>
     <link rel="stylesheet" type="text/css" href="/styles/daily.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -64,7 +64,7 @@
                         <button class="buttons-insights button-esquerdo-row-inside">
                             <label class="names-buttons-insights name-button-SPR">SPR</label>
                             <br>
-                            <input type="text" value="85" disabled>
+                            <input type="text" value="((dailyMetrics.totalStops))" disabled>
                         </button>
                     </div>
                     
@@ -72,7 +72,7 @@
                         <button class="buttons-insights button-direito-row-inside">
                             <label class="names-buttons-insights name-button-SPORH">SPORH</label>
                             <br>
-                            <input class="input-SPORH" type="text" value="92%" disabled>
+                            <input class="input-SPORH" type="text" value="((dailyMetrics.sporh))%" disabled>
                         </button>
                     </div>
                     <!-- // -->
@@ -93,7 +93,7 @@
                         <button class="buttons-insights button-esquerdo-row-inside">
                             <label class="names-buttons-insights name-button-TW">TW</label>
                             <br>
-                            <input class="input-TW" type="text" value="95%" disabled>
+                            <input class="input-TW" type="text" value="((timeWindows.percentageOnTime))%" disabled>
                         </button>
                     </div>
                     
@@ -101,7 +101,7 @@
                         <button class="buttons-insights button-direito-row-inside">
                             <label class="names-buttons-insights name-button-AFD">AFD</label>
                             <br>
-                            <input type="text" value="8%" disabled>
+                            <input type="text" value="((deliveryDetails.totalAfd))%" disabled>
                         </button>
                     </div>
                     <!-- // -->
@@ -122,7 +122,7 @@
                         <button class="buttons-insights button-esquerdo-row-inside">
                             <label class="names-buttons-insights name-button-Departed">Departed</label>
                             <br>
-                            <input type="text" value="09:35" disabled>
+                            <input type="text" value="((deliveryDetails.departTime))" disabled>
                         </button>
                     </div>
 
@@ -130,7 +130,7 @@
                         <button class="buttons-insights button-meio-row-inside">
                             <label class="names-buttons-insights name-button-Arrived">Arrived</label>
                             <br>
-                            <input type="text" value="18:15" disabled>
+                            <input type="text" value="((deliveryDetails.arriveTime))" disabled>
                         </button>
                     </div>
                     
@@ -141,7 +141,7 @@
                                 <br>
                                 <div class="div-break">
                                     <div class="col-break1">
-                                        <input class="input-break" type="text" value="20" disabled>
+                                        <input class="input-break" type="text" value="((dailyMetrics.breakMinutes))" disabled>
                                     </div>
 
                                     <div class="space-cols"></div>
@@ -177,7 +177,7 @@
                         <button class="buttons-stops">
                             <label class="names-buttons-stops name-button-PU">PU</label>
                             <br>
-                            <input type="text" value="45" disabled>
+                            <input type="text" value="((deliveryDetails.paidStops.pu))" disabled>
                         </button>
                     </div>
 
@@ -185,7 +185,7 @@
                         <button class="buttons-stops">
                             <label class="names-buttons-stops name-button-Ok">Ok</label>
                             <br>
-                            <input type="text" value="35" disabled>
+                            <input type="text" value="((deliveryDetails.paidStops.ok))" disabled>
                         </button>
                     </div>
                     
@@ -193,7 +193,7 @@
                         <button class="buttons-stops button-direito-row-inside">
                             <label class="names-buttons-stops name-button-HN">HN</label>
                             <br>
-                            <input type="text" value="5" disabled>
+                            <input type="text" value="((deliveryDetails.paidStops.hn))" disabled>
                         </button>
                     </div>
 
@@ -201,7 +201,7 @@
                     <div class="col-3 pe-0 ps-0"> 
                         <button class="buttons-stops button-stops-PD">
                             <label class="names-buttons-stops name-button-PD">PD</label>
-                            <input class="input-half" disabled>
+                            <input class="input-half" value="((deliveryDetails.paidStops.pd))" disabled>
                         </button>
                     </div>
                     <!-- // -->
@@ -227,7 +227,7 @@
                         <button class="buttons-fdeliveries">
                             <label class="names-buttons-fdeliveries name-button-NR">NR</label>
                             <br>
-                            <input type="text" value="2" disabled>
+                            <input type="text" value="((deliveryDetails.unpaidStops.nr))" disabled>
                         </button>
                     </div>
 
@@ -235,7 +235,7 @@
                         <button class="buttons-fdeliveries">
                             <label class="names-buttons-fdeliveries name-button-FP">FP</label>
                             <br>
-                            <input type="text" value="1" disabled>
+                            <input type="text" value="((deliveryDetails.unpaidStops.fp))" disabled>
                         </button>
                     </div>
                     
@@ -244,7 +244,7 @@
                         <button class="buttons-fdeliveries button-fdeliveries-RD">
                             <label class="names-buttons-fdeliveries name-button-RD">RD</label>
                             <br>
-                            <input class="input-half" disabled>
+                            <input class="input-half" value="((deliveryDetails.unpaidStops.rd ))" disabled>
                         </button>
                     </div>
                 </div>
@@ -264,7 +264,7 @@
                         <button class="buttons-fdeliveries">
                             <label class="names-buttons-fdeliveries name-button-BA">BA</label>
                             <br>
-                            <input type="text" value="1" disabled>
+                            <input type="text" value="((deliveryDetails.unpaidStops.ba))" disabled>
                         </button>
                     </div>
                     
@@ -272,7 +272,7 @@
                         <button class="buttons-fdeliveries">
                             <label class="names-buttons-fdeliveries name-button-AFD">NH</label>
                             <br>
-                            <input type="text" value="3" disabled>
+                            <input type="text" value="((deliveryDetails.unpaidStops.nh))" disabled>
                         </button>
                     </div>
 
@@ -280,7 +280,7 @@
                         <button class="buttons-fdeliveries">
                             <label class="names-buttons-fdeliveries name-button-CM">CM</label>
                             <br>
-                            <input type="text" value="1" disabled>
+                            <input type="text" value="((deliveryDetails.unpaidStops.cm))" disabled>
                         </button>
                     </div>
                     <!-- // -->
@@ -290,4 +290,36 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
+<script>
+    // Busca os dados da SUA API (que retorna JSON)
+    fetch('/api/bff/day-overview')
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                throw new Error(`Erro ${response.status}: ${text}`);
+                });
+            }
+            return response.json();
+            })
+        .then(data => {
+        // Função para substituir ((chave)) pelos valores
+        const replacePlaceholders = (text, obj) => {
+            return text.replace(/\(\((\w+\.?[\w\.]*)\)\)/g, (match, key) => {
+            const keys = key.split('.');
+            return keys.reduce((acc, curr) => acc?.[curr], obj) || match;
+            });
+        };
+
+        // Atualiza todos os inputs com os valores
+        document.querySelectorAll('input').forEach(input => {
+            input.value = replacePlaceholders(input.value, data);
+        });
+        })
+        .catch(error => {
+        console.error('Erro:', error);
+        alert('Não foi possível carregar os dados.');
+        });
+  </script>
+
 </html>

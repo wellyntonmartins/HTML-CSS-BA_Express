@@ -121,8 +121,6 @@
   </body>
 
   <script>
-
-    // Adicione esses event listeners no início do seu JavaScript
       document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
     
@@ -132,7 +130,7 @@
             password_do_usuario: formData.get('password_do_usuario')
         };
 
-        // Requisição AJAX com jQuery
+        // Requisição AJAX da página "auth/login" após receber o response do seu próprio fetch
         $.ajax({
             url: '/auth/login',
             type: 'POST',
@@ -156,30 +154,16 @@
                     }, 5000);
                 }
             },
-            200: function(data) { // Novo handler para sucesso
-                if (data.redirect) {
-                  window.location.href = data.redirect; // Redireciona
-                }
-              },
-              error: function(jqXHR) {
-                console.error('Erro:', jqXHR);
+            success: function(data) {
+              if (data.redirect) {
+                window.location.href = data.redirect;
               }
-            });
+            },
+            error: function(jqXHR) {
+              console.error('Erro:', jqXHR);
+            }
+        });
     });
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-      var buttonEye1 = document.getElementById("button_eye_1");
-      var inputPassword = document.getElementById("input_password");
-
-      buttonEye1.addEventListener("click", function() {
-          if (inputPassword.type === "password") {
-              inputPassword.type = "text";
-          } else {
-              inputPassword.type = "password";
-          }
-      });
-  });
 </script>
     
 

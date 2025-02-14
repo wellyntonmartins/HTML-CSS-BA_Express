@@ -331,7 +331,7 @@ form:has(#input_email:not(:placeholder-shown)):has(#input_password:not(:placehol
 
 /* Checkbox (checked after) keep logged (dimensões, condições) */
 .checkbox_keep_logged:checked::after {
-    content: url('/login/icons/check.jpg');
+    content: url('/image/check.jpg');
     display: flex;
     width: 20px;
     height: 20px;

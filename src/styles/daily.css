@@ -308,21 +308,6 @@ input {
     transition: all 0.3s ease;
 }
 
-/* Buttons com inputs inviíves (dimensões, condições) */
-.button-stops-PD, .button-fdeliveries-RD {
-    height: 60% !important;
-}
-
-/* Labels de buttons com inputs invisíveis (dimensões) */
-.name-button-PD, .name-button-RD {
-    padding-top: 11px;
-}
-
-/* Inputs "invisíveis" (dimensõe, condições) */
-input[class="input-half"] {
-    height: 35px !important;
-}
-
 /* container-failed-deliveries (dimensões, condições) */
 .container-failed-deliveries {
     display: flex;

@@ -2,6 +2,7 @@
 // IMPORTAÇÕES EXTERNAS
 import express, { response } from "express"
 import path from "path"
+import fs from 'fs';
 import { fileURLToPath } from "url"
 
 // DECLARAÇÕES DE VARIÁVEIS PARA MÓDULOS EXPRESS
@@ -10,7 +11,7 @@ const __dirname = path.dirname(__filename)
 
 // DECLARÇÃO DO APP = EXPRESS E PORT DA API
 const app = express()
-const port = 3000
+const port = 3002
 
 // DECLARAÇÃO DE TODO O PROJETO, PARA PODER SEREM VINCULADOS AOS HMTL SEUS ARQUIVOS ESTÁTICOS CORRESPONDENTES
 app.use(express.static(path.join(__dirname, '../public')));
@@ -27,8 +28,9 @@ app.use(session({
   secret: 'sua_chave_secreta',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // Use true se estiver usando HTTPS
+  cookie: { secure: false }
 }));
+
 
 // ROTA DE MÉTODO GET PARA A PÁGINA login
 app.get('/auth/login', (req, res) => {
@@ -41,7 +43,7 @@ app.post('/auth/login', (req, res) => {
   // Pega os dados do formulário
   const { email_do_usuario, password_do_usuario } = req.body;
 
-  // Inicializa a sessão corretamente
+  // Inicializa a sessão
   req.session.loginAttempts = req.session.loginAttempts || 0;
 
   // VALIDAÇÃO DE TENTATIVAS DE ERRO
@@ -56,31 +58,37 @@ app.post('/auth/login', (req, res) => {
       body: JSON.stringify({
         email: email_do_usuario,
         password: password_do_usuario,
-        ipAddress: '177.34.139.254',
+        ipAddress: '131.221.89.81',
         deviceInfo: 'teste'
       })
      })
      .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-     })
-     .then(data => {
-        console.log('Success:', data);
-     })
-     .catch(error => {
+        if (!response.ok) throw new Error('Falha na API externa');
+        
+        // Extrai o token do corpo da resposta (data.token)
+        return response.json().then(data => {
+          req.session.token = data.token; // Captura o token aqui
+          console.log('Token armazenado:', req.session.token);
+          
+          // Salva a sessão
+          return new Promise((resolve, reject) => {
+            req.session.save(err => {
+              if (err) reject(err);
+              else resolve(data); // Passa data para o próximo .then()
+            });
+          });
+        });
+      })
+      .then(data => {
+        res.status(200).json({ 
+          success: true, 
+          redirect: '/bff/day-overview'
+        });
+      })
+      .catch(error => {
         console.error('Error:', error);
-     });
-
-    if (req.xhr) { // Verifica se é uma requisição AJAX
-      res.status(200).json({
-        success: true,
-        redirect: '/auth/send-password-reset-token',
-        externalData: response.data
+        res.status(500).json({ error: true, message: 'Erro interno' });
       });
-    } else {
-      res.redirect('/daily');
-    }
 
   } else {
     req.session.loginAttempts++;
@@ -104,45 +112,79 @@ app.post('/auth/login', (req, res) => {
   }
 });
 
+// ROTA DE MÉTODO GET PARA A PÁGINA daily
+app.get('/bff/day-overview', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'daily.html'));
+});
+
+app.get('/api/bff/day-overview', async (req, res) => {
+  try {
+    const response = await fetch('http://142.93.64.83:3001/bff/day-overview', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': req.session.token
+      }
+    });
+
+    // Verifica se a resposta é válida
+    if (!response.ok) {
+      const errorText = await response.text(); // Captura o HTML/texto de erro
+      console.error("Resposta da API externa:", errorText);
+      throw new Error(`API externa retornou status ${response.status}`);
+    }
+    
+    const data = await response.json(); 
+    res.json(data);
+
+  } catch (error) {
+    console.error('Erro:', error.message);
+    res.status(500).json({ error: "Falha ao processar dados", details: error.message });
+  }
+});
+
 // ROTA DE MÉTODO GET PARA A PÁGINA send-password-reset-token
 app.get('/auth/send-password-reset-token', (req, res) => {
-  
-  res.sendFile(path.join(__dirname, '../public', 'send-password-reset-token.html'));
+
+  if (req.session.token) {
+    res.sendFile(path.join(__dirname, '../public', 'send-password-reset-token.html'));
+  } else {
+    res.redirect('/auth/login');
+  }
 });
 
 // ROTA DE MÉTODO POST PARA A PÁGINA send-password-reset-token
 app.post('/auth/send-password-reset-token', (req, res) => {
-  var email_do_usuario = req.body.email_do_usuario;
-  
+  const email_do_usuario = req.body.email_do_usuario;
+
+  // Salva o email na sessão
+  req.session.email = email_do_usuario;
+
   if (email_do_usuario !== 'teste.mvp@gmail.com') {
-    // Volta para a página com erro
-    return res.status(401).send('E-mail inválido');
+    return res.status(401)
   } else {
-    // Envia o email do usuário para a API
     fetch('http://142.93.64.83:3001/auth/send-password-reset-token', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email_do_usuario })
+      headers: { 
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email_do_usuario 
+      })
     })
     .then(response => {
       if (!response.ok) {
         if (response.status === 404) {
-          return res.redirect('/auth/usuario-bloqueado'); // Redireciona via servidor
-        } else {
-          throw new Error(`Erro: ${response.status}`);
+          return res.redirect('/auth/usuario-bloqueado');
         }
+        console.log(response.status);
       }
       return response.json();
     })
     .then(data => {
-      console.log('Success:', data);
-      // Armazena o token na sessão
-      req.session.resetData = {
-        token: data.token,
-        email: email_do_usuario // Guarda o email e token na sessão
-      }; 
+      // Força salvar a sessão antes do redirecionamento
       req.session.save(() => {
-        res.redirect('/auth/check-your-email'); // Redireciona via servidor
+        res.redirect('/auth/check-your-email');
       });
     })
     .catch(error => {
@@ -154,7 +196,7 @@ app.post('/auth/send-password-reset-token', (req, res) => {
 // ROTA DE MÉTODO GET PARA A PÁGINA check-your-email
 app.get('/auth/check-your-email', (req, res) => {
   // Verifica se o token está disponível ainda na sessão
-  if (!req.session.resetData.token) {
+  if (!req.session.token) {
     return res.redirect('/auth/send-password-reset-token').status(401);
   }
 
@@ -164,11 +206,11 @@ app.get('/auth/check-your-email', (req, res) => {
 
 // ROTA DE MÉTODO POST PARA A PÁGINA check-your-email
 app.post('/auth/check-your-email', (req, res) => {
-  const storedToken = req.session.resetData.token;
+  
 
   // Verifica se o token está disponível ainda na sessão
-  if (!storedToken) {
-    return res.status(401).send('Token inválido ou expirado');
+  if (!req.session.token) {
+    return res.status(401)
   }
     res.redirect('/auth/reset-password');
 });
@@ -177,8 +219,8 @@ app.post('/auth/check-your-email', (req, res) => {
 app.get('/auth/reset-password', (req, res) => {
 
   // Verifica se o token está disponível ainda na sessão
-  if (!req.session.resetData.token) { 
-    return res.redirect('/auth/send-password-reset-token').send('Token inválido ou expirado'); 
+  if (!req.session.token) { 
+    return res.redirect('/auth/send-password-reset-token').status(401);
   }
 
   res.sendFile(path.join(__dirname, '../public', 'reset-password.html'));
@@ -186,37 +228,34 @@ app.get('/auth/reset-password', (req, res) => {
 
 // ROTA DE MÉTODO POST PARA A PÁGINA reset-password
 app.post('/auth/reset-password', (req, res) => {
-
-  // Reccebe o token armazenado na sessão e o email do formulário
-  const confirm_password = req.body.confirm_password;
-  const resetData = req.session.resetData; 
+  const confirm_password = req.body;
+  const emailArmazenado = req.session.email;
 
   // Verifica se o token está disponível ainda na sessão
-  if (!storedToken) {
-    return res.status(401).send('Sessão expirada');
+  if (!req.session.token) {
+    return res.status(401)
   }
 
-  // Envia o token, email e a nova senha para a API
   fetch('http://142.93.64.83:3001/auth/reset-password', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
-      email: resetData.email,
-      token: resetData.token,
+      email: emailArmazenado,
+      token: req.session.token,
       newPassword: confirm_password
     })
   })
   .then(response => {
-    if (!response.ok) throw new Error('Falha ao alterar senha');
+    if (!response.ok) return response;
     // Remove o token APÓS o sucesso
-    req.session.resetToken = null;
+    req.session.token = null;
     req.session.save(() => {
       res.redirect('/auth/successfully-changed-password');
     });
   })
   .catch(error => {
     console.error('Error:', error);
-    res.status(500).send('Erro ao alterar senha');
+    res.status(500)
   });
 });
 
@@ -225,15 +264,17 @@ app.get('/auth/successfully-changed-password', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'changed_password.html'));
 });
 
+// ROTA DE MÉTODO POST PARA A PÁGINA successfully-changed-password
 app.post('/auth/successfully-changed-password', (req, res) => {
-  if (req.session.resetToken = null) {
+  if (req.session.token = null) {
+    res.redirect('/auth/login');
+  } else {
     res.redirect('/auth/login');
   }
 });
 
 // ROTA DE MÉTODO GET PARA A PÁGINA usuario-bloqueado
 app.get('/auth/usuario-bloqueado', (req, res) => {
-  
   res.sendFile(path.join(__dirname, '../public', 'usuario_bloqueado.html'));
 });
 
@@ -254,14 +295,8 @@ app.post('/auth/acess-blocked-login', (req, res) => {
   // res.redirect('http://url.com')
 })
 
-// ROTA DE MÉTODO GET PARA A PÁGINA daily
-app.get('/daily', (req, res) => {
-  
-  res.sendFile(path.join(__dirname, '../public', 'daily.html'));
-});
-
 // ROTA DE MÉTODO POST PARA A PÁGINA invoices
-app.get('/invoices', (req, res) => {
+app.get('/auth/invoices', (req, res) => {
   
   res.sendFile(path.join(__dirname, '../public', 'invoices.html'));
 });
