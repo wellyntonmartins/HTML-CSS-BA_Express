@@ -28,21 +28,21 @@
  
         <!-- Container dos botões dos dias da semana -->
         <div class="container-buttons">  
-            <button class="button-day">01<br><div class="names-buttons-day">Mon</div></button>
+            <button class="button-day" id="btn-day-1" value="1">01<br><div class="names-buttons-day">Mon</div></button>
             
-            <button class="button-day">02<br><div class="names-buttons-day">Tue</div></button>
+            <button class="button-day" id="btn-day-2" value="2">02<br><div class="names-buttons-day">Tue</div></button>
             
-            <button class="button-day">03<br><div class="names-buttons-day">Wed</div></button>
+            <button class="button-day" id="btn-day-3" value="3">03<br><div class="names-buttons-day">Wed</div></button>
             
-            <button class="button-day">04<br><div class="names-buttons-day">Thu</div></button>
+            <button class="button-day" id="btn-day-4" value="4">04<br><div class="names-buttons-day">Thu</div></button>
             
-            <button class="button-day">05<br><div class="names-buttons-day">Fri</div></button>
+            <button class="button-day" id="btn-day-5" value="5">05<br><div class="names-buttons-day">Fri</div></button>
         </div>
         
         <!-- Container que mostra o dia da semana selecionado -->
         <div class="container" id="container-day-show">
             <div class="row text-container-day-show">
-                <input type="text" class="input-c-day-show" value="DY1A" disabled>
+                <input type="text" class="input-c-day-show" value="" disabled>
             </div>
         </div>
 
@@ -101,7 +101,7 @@
                         <button class="buttons-insights button-direito-row-inside">
                             <label class="names-buttons-insights name-button-AFD">AFD</label>
                             <br>
-                            <input type="text" value="((deliveryDetails.totalAfd))%" disabled>
+                            <input type="text" class="input-AFD" value="((deliveryDetails.totalAfd))%" disabled>
                         </button>
                     </div>
                     <!-- // -->
@@ -244,7 +244,7 @@
                         <button class="buttons-fdeliveries button-fdeliveries-RD">
                             <label class="names-buttons-fdeliveries name-button-RD">RD</label>
                             <br>
-                            <input class="input-half" value="((deliveryDetails.unpaidStops.rd ))" disabled>
+                            <input class="input-half" value="((deliveryDetails.unpaidStops.rd))" disabled>
                         </button>
                     </div>
                 </div>
@@ -303,18 +303,50 @@
             return response.json();
             })
         .then(data => {
-        // Função para substituir ((chave)) pelos valores
-        const replacePlaceholders = (text, obj) => {
-            return text.replace(/\(\((\w+\.?[\w\.]*)\)\)/g, (match, key) => {
-            const keys = key.split('.');
-            return keys.reduce((acc, curr) => acc?.[curr], obj) || match;
-            });
-        };
+            console.log(data)
+            // Função para substituir ((chave)) pelos valores
+            const replacePlaceholders = (text, obj) => {
+                return text.replace(/\(\(([\w\.]+)\)\)/g, (match, key) => {
+                    const keys = key.split('.');
+                    let value = keys.reduce((acc, curr) => acc?.[curr], obj) ?? 'Null';
 
-        // Atualiza todos os inputs com os valores
-        document.querySelectorAll('input').forEach(input => {
-            input.value = replacePlaceholders(input.value, data);
-        });
+                    if (typeof value === 'number') {
+                        if (value === 0) {
+                            return '0';
+                        }
+                        if (value < 1 && value > 0) {
+                            value = Math.floor(value * 10) / 10;
+                            return value.toFixed(1);
+                        }
+                        return Math.floor(value).toString();
+                    }
+
+                    
+                    return String(value); 
+                });
+            };
+
+            // Atualiza todos os inputs com os valores
+            document.querySelectorAll('input').forEach(input => {
+                input.value = replacePlaceholders(input.value, data);
+            });
+
+            const routeId = data.route?.routeId; // Verifica se route existe
+            if (routeId >= 1 && routeId <= 5) {
+                // Remove a classe 'selected-day' de todos os botões
+                document.querySelectorAll('.button-day').forEach(btn => {
+                    btn.classList.remove('selected-day');
+                });
+                
+                // Adiciona a classe ao botão correto
+                const selectedButton = document.getElementById(`btn-day-${routeId}`);
+                if (selectedButton) {
+                    selectedButton.classList.add('selected-day');
+                }
+            }
+
+            const routeName = data.route?.routeName || 'N/A'; // Fallback se não existir
+            document.querySelector('.input-c-day-show').value = routeName;
         })
         .catch(error => {
         console.error('Erro:', error);

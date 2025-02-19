@@ -2,7 +2,6 @@
 // IMPORTAÇÕES EXTERNAS
 import express, { response } from "express"
 import path from "path"
-import fs from 'fs';
 import { fileURLToPath } from "url"
 
 // DECLARAÇÕES DE VARIÁVEIS PARA MÓDULOS EXPRESS
@@ -11,7 +10,7 @@ const __dirname = path.dirname(__filename)
 
 // DECLARÇÃO DO APP = EXPRESS E PORT DA API
 const app = express()
-const port = 3002
+const port = 3001
 
 // DECLARAÇÃO DE TODO O PROJETO, PARA PODER SEREM VINCULADOS AOS HMTL SEUS ARQUIVOS ESTÁTICOS CORRESPONDENTES
 app.use(express.static(path.join(__dirname, '../public')));
@@ -119,11 +118,11 @@ app.get('/bff/day-overview', (req, res) => {
 
 app.get('/api/bff/day-overview', async (req, res) => {
   try {
-    const response = await fetch('http://142.93.64.83:3001/bff/day-overview', {
+    const response = await fetch('http://142.93.64.83:3001/bff/day-overview/1/2024-12-02', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': req.session.token
+        'Authorization': 'Bearer ' + req.session.token
       }
     });
 
@@ -133,10 +132,16 @@ app.get('/api/bff/day-overview', async (req, res) => {
       console.error("Resposta da API externa:", errorText);
       throw new Error(`API externa retornou status ${response.status}`);
     }
-    
-    const data = await response.json(); 
-    res.json(data);
 
+    
+    
+    const data = await response.json();
+    const singleData = Array.isArray(data) ? data[0] : data;
+
+    res.json(singleData);
+    console.log(singleData)
+    
+    console
   } catch (error) {
     console.error('Erro:', error.message);
     res.status(500).json({ error: "Falha ao processar dados", details: error.message });
